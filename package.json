@@ -1,11 +1,12 @@
 {
-  "name": "desafio_unicad_api",
+  "name": "desafio_unicad",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Lucas Andrade",
+  "keywords": [],
+  "author": "",
   "license": "ISC"
 }
