@@ -17,7 +17,12 @@ module.exports = (sequelize, DataTypes) => {
     nome_cliente: {
       type: DataTypes.STRING,
       required: true,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Esse campo não pode ser vazio"
+        }
+      }
     },
     data_de_entrega: {
       type: DataTypes.DATEONLY,

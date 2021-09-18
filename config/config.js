@@ -1,5 +1,5 @@
 require('dotenv').config({
-    path: process.env.NODENV == "test" ? ".env.test" : ".env"
+    path: process.env.NODE_ENV == 'test' ? '.env.test' : '.env'
 })
 
 module.exports = {
@@ -8,6 +8,5 @@ module.exports = {
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT || 'mysql',
-    storage: '../__tests__/database.sqlite'
 
 }

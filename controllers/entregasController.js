@@ -3,45 +3,40 @@ const entregasServices = require('../services/entregasSerivces')
 const EntregasController = {
 
     todasEntregas: async (req,res) =>  {
-        try {
-            let listarTodas = await entregasServices.listarEntregas()
+
+        let listarTodas = await entregasServices.listarEntregas()
             
-            res.status(200).json(listarTodas)
-        } catch (error) {
-            return error
-        }
+        res.status(200).json(listarTodas)
+
     },
 
     criarEntregas: async (req,res) =>  {
-        try {
-            let criarEntrega = await entregasServices.criarEntregas(req)
-           
-            res.status(200).json(criarEntrega)
-        } catch (error) {
-            return error
-        }
-    },
 
+        let criarEntrega = await entregasServices.criarEntregas(req)
+        
+        // if(criarEntrega === req.body) {
+        //     return res.status(409).send("message: entrega already exist")
+        // }
+
+        res.status(200).json(criarEntrega)
+
+    },
     editarEntregas: async (req,res) =>  {
-        try {
+
             
-            let editarEntrega = await entregasServices.editarEntregas(req)
+        let editarEntrega = await entregasServices.editarEntregas(req)
             
-            res.status(200).json(editarEntrega)
-        } catch (error) {
-            return error
-        }
+        res.status(200).json(editarEntrega)
+
     },
 
     deletarEntregas: async (req,res) =>  {
-        try {
+
             
-            let deletarEntrega = await entregasServices.deletarEntregas(req)
+        let deletarEntrega = await entregasServices.deletarEntregas(req)
             
-            res.status(200).json(deletarEntrega)
-        } catch (error) {
-            return error
-        }
+        res.status(200).json(deletarEntrega)
+
     }
 }
 

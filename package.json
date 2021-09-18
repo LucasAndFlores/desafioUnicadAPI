@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "NODE_ENV=test sequelize db:migrate",
+    "dbtest": "NODE_ENV=test sequelize db:create",
+    "dbmigratetest": "NODE_ENV=test sequelize db:migrate",
     "test": "NODE_ENV=test jest",
-    "postest": "NODE_ENV=test sequelize db:migrate:undo:all",
-    "dev": "nodemon app.js"
+    "postest": "NODE_ENV=test sequelize db:drop",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "jest": "^27.2.0",
     "nodemon": "^2.0.12",
     "sequelize-cli": "^6.2.0",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "supertest": "^6.1.6"
   }
 }
