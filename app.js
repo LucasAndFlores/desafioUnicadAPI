@@ -13,15 +13,8 @@ app.use(cors())
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-// const port = process.env.PORT || 8000
 
-// app.listen(port, () => {
-//     console.log(`server is running in port ${port}`)
-// })
 
-app.use('/', (req, res) => 
-    res.send("helow")
-  )
 app.use('/v1/entregas', rotasEntregas)
 
 const connect = async () => {try {
