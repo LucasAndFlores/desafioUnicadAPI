@@ -9,7 +9,7 @@
     "test": "NODE_ENV=test jest",
     "postest": "NODE_ENV=test sequelize db:drop",
     "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
