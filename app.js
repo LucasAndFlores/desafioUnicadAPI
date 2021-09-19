@@ -1,20 +1,20 @@
 require('dotenv').config({
-    path: process.env.NODENV == "test" ? ".env.test" : ".env"
+    path: process.env.NODE_ENV == 'test' ? '.env.test' : '.env'
 })
 const express = require('express')
 const app = express();
-const port = 8000
+const port = process.env.PORT
 const rotasEntregas = require('./routes/rotasEntregas')
 const models = require('./db/models')
+const cors = require('cors')
+
+
+app.use(cors())
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 app.use('/v1/entregas', rotasEntregas)
-
-app.listen(port, () => {
-   console.log(`server running on port ${port}`) 
-})
 
 const connect = async () => {try {
     await models.sequelize.authenticate();
@@ -24,3 +24,5 @@ const connect = async () => {try {
   }
 } 
 connect()
+
+module.exports = app  

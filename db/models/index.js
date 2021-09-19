@@ -2,7 +2,9 @@
 
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config()
+require('dotenv').config({
+  path: process.env.NODE_ENV == 'test' ? '.env.test' : '.env'
+})
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const config = require('../../config/config')

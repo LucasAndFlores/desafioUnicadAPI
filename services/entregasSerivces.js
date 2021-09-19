@@ -2,17 +2,12 @@ const entregasRepo = require('../repositories/entregasRepo')
 
 const entregasService = {
 
-    listarEntregas: async () => {
-        try {
+    listarEntregas: async () => { 
             let listarTodas = await entregasRepo.listar()
             return listarTodas
-        } catch (error) {
-            return error
-        }
     },
     
     criarEntregas: async (req) => {
-        try {
             let { nome_cliente,
                 data_de_entrega,
                 ponto_de_partida,
@@ -31,12 +26,9 @@ const entregasService = {
             })
             
             return criado
-        } catch (error) {
-            return error
-        }
     },
     editarEntregas: async (req) => {
-        try {
+
             let { id } = req.params
 
             let { nome_cliente,data_de_entrega,
@@ -60,22 +52,15 @@ const entregasService = {
             )
             
             return entregaAtualizada
-        } catch (error) {
-            return error
-        }
     },
 
     deletarEntregas: async (req) => {
-        try {
             let { id } = req.params
             let deletarEntrega = await entregasRepo.deletar({
                 where: {id: id}
             })
             return deletarEntrega
-        } catch (error) {
-            return error
-        }
-    },
+}
 }
 
 module.exports = entregasService
